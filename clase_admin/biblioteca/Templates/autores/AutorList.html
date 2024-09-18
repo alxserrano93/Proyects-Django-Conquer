@@ -1,0 +1,23 @@
+{% extends "general/layout.html" %}
+
+{% block head_title %}Pagina de Autores{% endblock  %}
+{% block page_title %}Lista de Autores{% endblock %}
+
+{% block page_content %}
+    <h2>Lista completa de Autores</h2>
+    <ul>
+        <li><a href="{% url 'autor:create' %}">Crear nuevo Autor</a></li>
+    </ul>
+
+    <hr>
+
+    <ul>
+        {% for autor in autores %}
+        
+            <li><a href="{% url 'autor:detail' autor.pk %}">{{ autor.nombre }}</a></li>      
+        
+        {% endfor %}
+    </ul>
+
+
+{% endblock  %}     

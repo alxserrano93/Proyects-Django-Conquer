@@ -1,0 +1,14 @@
+{% extends "general/layout.html" %}
+
+{% block head_title %}Pagina de contacto{% endblock  %}
+
+{% block page_title %}Esto es la pagina de contacto{% endblock %}
+
+{% block page_content %}
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{ formulario.as_p }}
+        <button>Enviar</button>
+    </form>
+    <p>Escribenos a <a href="mailto: alexserrano.casino@gmail.com"> alexserrano.casino@gmail.com</a></p>
+{% endblock  %}

@@ -1,0 +1,19 @@
+{% extends "general/layout.html" %}
+
+{% block head_title %}Pagina detalle de Editorial{% endblock  %}
+{% block  page_title %}Editorial{% endblock %}
+
+{% block page_content %}
+    {% if editorial %}
+        <h2>Nombre: {{ editorial.nombre }}</h2>
+        <p>Direccion: {{ editorial.direccion }} </p>
+        <p>Email: {{ editorial.email }} </p>
+
+        <p><a href="{% url 'editorial:update' editorial.pk %}">Editar Editorial</a> -
+        <a href="{% url 'editorial:delete' editorial.pk %}">Eliminar Editorial</a></p>
+        
+    
+        <p><a href="{% url 'editorial:list' %}">Lista de editoriales</a></p>
+
+    {% endif %}
+{% endblock  %}

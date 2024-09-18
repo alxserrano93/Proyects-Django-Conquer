@@ -1,0 +1,16 @@
+{% extends "general/layout.html" %}
+
+{% block head_title %}Pagina de Autores{% endblock  %}
+{% block page_title %}Autores{% endblock  %}
+
+{% block page_content %}
+    <h2>¿Eliminar Autor: {{ autor.nombre }} {{ autor.apellido }}?</h2>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button>Eliminar</button>
+    </form>
+    <p><a href="{% url 'autor:list' %}">Lista de Autores</a></p>
+
+{% endblock  %}

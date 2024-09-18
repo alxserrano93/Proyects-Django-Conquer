@@ -1,0 +1,13 @@
+<ul>
+    <li><a href="{% url 'home' %}">Inicio</a></li>
+    <li><a href="{% url 'autor:list' %}">Autores</a></li>
+    <li><a href="{% url 'editorial:list' %}">Editorial</a></li>
+    <li><a href="{% url 'libro:list' %}">Libros</a></li>
+    <li><a href="{% url 'search' %}">Busqueda</a></li>
+    <li><a href="{% url 'contacto' %}">Contacto</a></li>
+<hr>
+    {% if request.user.is_authenticated %}
+        <li>Usuario Logueado: {{ request.user.email }}</li>
+    {% endif %}
+
+</ul>

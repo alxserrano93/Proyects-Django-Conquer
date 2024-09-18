@@ -1,0 +1,24 @@
+{% extends "layout_base.html" %}
+
+{% block head_title %} Listado de cursos {% endblock %}
+
+{% block page_content %}
+    <h1>Este es el listado de Cursos en Conquer</h1>
+
+    {% for course in courses %}
+        <article id = "{{ course.pk }}">
+            <h2>{{ course.title }}</h2>
+
+            {% if course.course_image %}
+            <picture>
+              <img src="{{ course.course_image.thumbnails.small.url }}" alt="">  
+            </picture>
+            {% endif %}
+            
+            <div>
+                {{ course.content | truncatechars:100 | safe}}...
+            </div>
+            <p><a href="{% url 'courses:course_detail' course.pk %}">Ir al curso</a></p>
+        </article>
+    {% endfor %}
+{% endblock %}

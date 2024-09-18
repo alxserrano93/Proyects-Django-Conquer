@@ -1,0 +1,26 @@
+{% extends "general/layout.html" %}
+
+{% block head_title %}Pagina detalle de Libro{% endblock  %}
+{% block  page_title %}Libro{% endblock %}
+
+{% block page_content %}
+    {% if libro %}
+        <h2>Titulo: {{ libro.titulo }}</h2>
+        <ul>
+            <li>Isbn: {{ libro.isbn }}</li>
+            <li>Fecha de Publicacion: {{ libro.fecha_publicacion }}</li>
+            <li>Numero de Paginas: {{ libro.numero_paginas }}</li>
+            <li>Idioma: {{ libro.idioma }}</li>
+            <li>Editorial: {{ libro.editorial }}</li>
+            <li>Autores: {{ libro.autores }}</li>
+            <li>Precio: {{ libro.precio }}</li>
+        </ul>
+
+        <p><a href="{% url 'libro:update' libro.pk %}">Editar Libro</a> -
+        <a href="{% url 'libro:delete' libro.pk %}">Eliminar Libro</a></p>
+
+    
+        <p><a href="{% url 'libro:list' %}">Lista de Libros</a></p>
+
+    {% endif %}
+{% endblock  %}

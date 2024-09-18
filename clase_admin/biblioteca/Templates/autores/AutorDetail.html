@@ -1,0 +1,25 @@
+{% extends "general/layout.html" %}
+
+{% block head_title %}Pagina detalle de Autor{% endblock  %}
+{% block  page_title %}Autor{% endblock %}
+
+{% block page_content %}
+    {% if autor %}
+        <h2>Nombre del autor: {{ autor.nombre }} {{ autor.apellido }}</h2>
+        <p>Id del autor: {{ autor.pk }} </p>
+        <p>Fecha de nacimiento: {{ autor.fecha_nacimiento }} </p>
+        <p>Nacionalidad: {{ autor.nacionalidad }} </p>
+        <p>Email: {{ autor.email }} </p>
+        <p>Telefono: {{ autor.telefono }} </p>
+        <p>Sitio Web: {{ autor.sitio_web }} </p>
+        <p>Premios: {{ autor.premios }} </p>
+
+
+        <p><a href="{% url 'autor:update' autor.pk %}">Editar Autor</a> -
+        <a href="{% url 'autor:delete' autor.pk %}">Eliminar Autor</a></p>
+    
+        <p><a href="{% url 'autor:list' %}">Lista de autores</a></p>
+
+        
+    {% endif %}
+{% endblock  %}

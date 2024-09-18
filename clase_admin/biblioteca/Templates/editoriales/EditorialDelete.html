@@ -1,0 +1,15 @@
+{% extends "general/layout.html" %}
+
+{% block head_title %}Pagina de Editoriales{% endblock  %}
+{% block page_title %}Borrar Editorial{% endblock  %}
+
+{% block page_content %}
+    <h2>¿Quiere eliminar la Editorial: {{ editorial.nombre }}?</h2>
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button>Eliminar Editorial</button>
+    </form>
+    <p><a href="{% url 'editorial:list' %}">Lista de editoriales</a></p>
+    
+{% endblock  %}
