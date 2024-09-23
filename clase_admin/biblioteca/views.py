@@ -1,8 +1,10 @@
 from django.shortcuts import render
+from django.contrib import messages
 
 from books.models import Autor, Libro, Editorial
 from books.forms import SearchForm
 from .form import ContactForm
+
 
 # Vistas generales de la aplicación
 def home_view(request):
@@ -76,8 +78,8 @@ def contact_view(request):
             print(f'Se ha enviado un correo a {nombre} procedente de email {email} con el texto {comentario}')
             context = {
               'form' : formulario,
-              'success' : True
             }
+            messages.info(request, 'El correo se ha enviado correctamente')
             return render(request, "general/contacto.html", context)
         else:
             context = {

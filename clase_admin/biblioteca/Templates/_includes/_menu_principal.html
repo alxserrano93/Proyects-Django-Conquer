@@ -11,3 +11,13 @@
     {% endif %}
 
 </ul>
+
+{% if messages %}
+<section class="messages">
+    <ul>
+        {% for message in messages  %}
+            <li class="message">{{ message }} - Categoria: {{ message.tags }}</li>  
+        {% endfor %}
+    </ul> 
+</section>
+{% endif %}
