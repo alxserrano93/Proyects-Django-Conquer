@@ -117,8 +117,20 @@ AUTH_PASSWORD_VALIDATORS = [
 LANGUAGE_CODE = 'es-ES'
 TIME_ZONE = 'Atlantic/Canary'
 USE_I18N = True
+USE_L10N =  True
 USE_TZ = True
 
+#Definir las opciones de idiomas disponibles
+LANGUAGES = [
+    ('en', 'English'),
+    ('es', 'Español'),
+    #Puedes añadir mas idiomas segun sea necesario
+]
+
+#Definir la ruta donde se almacenaran los archivos de traduccion
+LOCALE_PATHS = [
+    BASE_DIR / 'locale', #'locale' sera la carpeta donde se guardaran las traducciones
+]
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
