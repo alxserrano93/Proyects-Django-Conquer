@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django_extensions',
     'import_export',
     'rosetta',
+    'modeltranslation',
 
     'books',
 ]
@@ -132,6 +133,11 @@ LANGUAGES = [
 ]
 
 LANGUAGE_COOKIE_NAME = 'django_language'
+
+MODELTRANSLATION_DEFAULT_LANGUAGE = 'es'
+MODELTRANSLATION_LANGUAGES = ('es', 'en')
+MODELTRANSLATION_FALLBACK_LANGUAGES = ('es',)
+MODELTRANSLATION_PREPOPULATE_LANGUAGE = 'es'
 
 #Definir la ruta donde se almacenaran los archivos de traduccion
 LOCALE_PATHS = [
