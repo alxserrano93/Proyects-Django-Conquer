@@ -93,3 +93,23 @@ def contact_view(request):
       'formulario' : formulario
     }
     return render(request, "general/contacto.html", context)
+
+from django.views.generic import View
+from django.http import HttpResponseRedirect
+from django.utils import translation
+
+class SetLanguageView(View):
+    def post(self, request, *args, **kwargs):
+        # Obtenermos el idioma seleccinado del formulario
+        language = request.POST.get('language', None)
+
+        # Si se selecciono un idioma lo activamos
+        if language:
+            translation.activate(language)
+            #Guardamos el idioma en la sesion para que sea persistente
+            request.session['django_language'] = language
+            print(f"Idioma activado: {translation.get_language()}")
+
+        #Redirirgimos a la pagina desde donde se hizo la peticion 
+        next_url = request.POST.get('next', '/')
+        return HttpResponseRedirect(next_url)

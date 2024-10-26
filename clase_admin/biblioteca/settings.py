@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'debug_toolbar',
     'django_extensions',
     'import_export',
+    'rosetta',
 
     'books',
 ]
@@ -49,6 +50,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -72,6 +74,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'biblioteca.context_processor.get_current_year_context_processor',
+                'django.template.context_processors.i18n', # Añadido para disponer de LANGUAGES en las plantillas
                 'biblioteca.context_processor.get_statistics_books',
             ],
         },
@@ -114,11 +117,12 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
 
-LANGUAGE_CODE = 'es-ES'
+LANGUAGE_CODE = 'es' #idioma predeterminado
 TIME_ZONE = 'Atlantic/Canary'
 USE_I18N = True
 USE_L10N =  True
 USE_TZ = True
+PREFIX_DEFAULT_LANGUAGE = True #para decirle qu tiene un inicio de doble lenguage
 
 #Definir las opciones de idiomas disponibles
 LANGUAGES = [
@@ -126,6 +130,8 @@ LANGUAGES = [
     ('es', 'Español'),
     #Puedes añadir mas idiomas segun sea necesario
 ]
+
+LANGUAGE_COOKIE_NAME = 'django_language'
 
 #Definir la ruta donde se almacenaran los archivos de traduccion
 LOCALE_PATHS = [
@@ -148,3 +154,4 @@ INTERNAL_IPS = [
     "127.0.0.1",
     # ...
 ]
+
