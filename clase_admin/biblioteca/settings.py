@@ -44,6 +44,8 @@ INSTALLED_APPS = [
     'import_export',
     'rosetta',
     'modeltranslation',
+    'crispy_forms',
+    'crispy_bootstrap5',
 
     'books',
 ]
@@ -161,3 +163,5 @@ INTERNAL_IPS = [
     # ...
 ]
 
+CRISPY_ALLOWED_TEMPLATE_PACK = 'bootstrap5'
+CRISPY_TEMPLATE_PACK = 'bootstrap5'

@@ -14,7 +14,7 @@ class EditorialCreate(forms.Form):
     telefono = forms.CharField(max_length=20, required = False)
     email = forms.EmailField()
     sitio_web = forms.URLField(required=False)
-    fecha_fundacion = forms.DateField()
+    fecha_fundacion = forms.DateField(widget= forms.SelectDateWidget)
     
     def clean_nombre(self):
         nombre = self.cleaned_data.get('nombre')
@@ -29,7 +29,8 @@ class EditorialModelFormCreate(ModelForm):
         fields = [
             'nombre',
             'direccion', 
-            'codigo_postal',
             'email',
-            'fecha_fundacion'
+            'fecha_fundacion',
+            'level',
+            'sitio_web'
             ]
